@@ -1,0 +1,7 @@
+public/Taimanin RPGX/
+node_modules/
+.git/
+.gitignore
+*.log
+*.md
+.trae/

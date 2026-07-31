@@ -1,0 +1,25 @@
+services:
+  taimanin-rpg-web:
+    image: ghcr.io/1098542053/taimanin-rpg-web:latest
+    container_name: taimanin-rpg-web
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-3002}:3000"
+    environment:
+      - NODE_ENV=production
+      # 静态资源根：容器内 /app/site（由卷挂载注入）
+      - PUBLIC_DIR=/app/site
+      - TZ=Asia/Shanghai
+    volumes:
+      # ─── Taimanin RPGX 资源映射 ───
+      # 宿主机路径: /vol2/1000/项目/taimanin-rpg/Taimanin RPGX （整个资源包）
+      #   包含 index.html、data/、scenes/、Story/、TABAScenes/、thumbnails/ 等
+      # 容器内路径: /app/site
+      # 在可视化 Docker 界面中将宿主机路径映射到 /app/site
+      - /vol2/1000/项目/taimanin-rpg/Taimanin RPGX:/app/site:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

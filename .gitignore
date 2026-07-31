@@ -1,0 +1,13 @@
+# ── Resource data (manually deployed, too large for git) ──
+public/Taimanin RPGX/
+# ── Node ──
+node_modules/
+# ── Temporary files ──
+*.log
+*.tmp
+# ── OS files ──
+.DS_Store
+Thumbs.db
+# ── IDE ──
+.vscode/
+.idea/
