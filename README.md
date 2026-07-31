@@ -30,9 +30,11 @@ npm start
 # 1. 拉取镜像
 docker pull ghcr.io/1098542053/taimanin-rpg-web:latest
 
-# 2. 放置资源：将 data/ 目录放到宿主机（如 /vol2/1000/项目/taimanin-rpg/data）
+# 2. 放置资源：将 Taimanin RPGX 整个目录放到宿主机
+#    如 /vol2/1000/项目/taimanin-rpg/Taimanin RPGX
+#    包含 index.html、data/、scenes/、Story/ 等
 
-# 3. 修改 docker-compose.yml 中的挂载路径后启动
+# 3. 修改 docker-compose.yml 中的卷挂载路径后启动
 docker compose up -d
 ```
 
